@@ -177,14 +177,6 @@
       "price": "$74.37 DLLS"
     },
     {
-      "title": "New Bookie",
-      "author": "Carlos Wu Fei",
-      "country": "United Kingdom",
-      "isbn": "123",
-      "genre": "geologia",
-      "id": "BkggtoaWK"
-    },
-    {
       "title": "La Cordonera Mantis",
       "author": "Ebenezer Batista Quintana",
       "country": "Argentina",
@@ -195,6 +187,18 @@
       "edition": "Segunda",
       "price": "$47.14 DLLS",
       "id": "KUJ3YUSBI"
+    },
+    {
+      "title": "La Cordonera Mantis",
+      "author": "Ebenezer Batista Quintana",
+      "country": "Argentina",
+      "genre": "Humor",
+      "year": 1943,
+      "publisher": "Paradigma Libros",
+      "isbn": "95-0425-858-1",
+      "edition": "Segunda",
+      "price": "$47.14 DLLS",
+      "id": "CLsQPtSEK"
     }
   ]
 }

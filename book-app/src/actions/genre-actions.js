@@ -1,8 +1,7 @@
 /* eslint-disable */
 import { environment } from '../environment/environment';
+import { SET_GENRES, SET_SINGLE_GENRE, CREATE_GENRE, DELETE_GENRE } from './constants';
 
-export const SET_GENRES  = 'SET_GENRES';
-export const SET_SINGLE_GENRE  = 'SET_SINGLE_GENRE';
 
 function handleResponse (response) {
     if (response.ok) {
@@ -30,8 +29,15 @@ export function setSingleBook(data) {
 
 export function genreDeleted(id) {
     return {
-        type: CV_DELETED,
+        type: DELETE_GENRE,
         id
+    }
+}
+
+export function genreCreated(data) {
+    return {
+        type: CREATE_GENRE,
+        data
     }
 }
 
@@ -44,7 +50,7 @@ export function deleteGenre(id) {
            }
         }) 
         .then(handleResponse)
-        .then(data => dispatch(cvDeleted(id)));   
+        .then(data => dispatch(genreDeleted(id)));   
     }
 }
 
@@ -57,7 +63,7 @@ export function createGenre(data) {
                "Content-Type" : "application/json",
            }
         })
-        .then(handleResponse).then(data => dispatch(addCV(data)));   
+        .then(handleResponse).then(data => dispatch(genreCreated(data)));   
         
     }
 }

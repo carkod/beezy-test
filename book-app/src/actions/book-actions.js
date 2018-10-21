@@ -1,11 +1,8 @@
 /* eslint-disable */
 import { environment } from '../environment/environment';
-
-export const SET_BOOKS  = 'SET_BOOKS';
-export const SET_SINGLE_BOOK  = 'SET_SINGLE_BOOK';
+import { DELETE_BOOK, CREATE_BOOK, SET_BOOKS, SET_SINGLE_BOOK } from './constants';
 
 async function handleResponse (response) {
-    console.log(response);
     if (response.ok) {
         return response.json();
     } else {
@@ -15,9 +12,9 @@ async function handleResponse (response) {
     }
 }
 
-export function setFormFields (data) {
+export function bookCreated (data) {
     return {
-        type: SET_FIELDS,
+        type: CREATE_BOOK,
         data
     }
 }
@@ -36,6 +33,13 @@ export function setSingleBook(data) {
     }
 }
 
+export function bookDeleted(id) {
+    return {
+        type: DELETE_BOOK,
+        id
+    }
+}
+
 export function deleteBook(id) {
     return dispatch => {
         return fetch(`${environment.host}/books/${id}`, {
@@ -45,9 +49,7 @@ export function deleteBook(id) {
            }
         }) 
         .then(handleResponse)
-        .then(data => {
-            dispatch(cvDeleted(id))
-        });   
+        .then(data => dispatch(bookDeleted(id)));   
     }
 }
 
@@ -60,7 +62,7 @@ export function createBook(data) {
                "Content-Type" : "application/json",
            }
         })
-        .then(handleResponse).then(data => dispatch(addCV(data)));   
+        .then(handleResponse).then(data => dispatch(bookCreated(data)));   
         
     }
 }
@@ -87,7 +89,6 @@ export function fetchBookApi(id) {
            },
         })
         .then(handleResponse)
-        .then(data => {
-            dispatch(setSingleBook(data))})
+        .then(data => dispatch(setSingleBook(data)))
     }
 }

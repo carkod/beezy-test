@@ -2,8 +2,7 @@
 
 import { combineReducers } from 'redux';
 
-import { SET_SINGLE_BOOK, SET_BOOKS } from './actions/book-actions';
-import { SET_SINGLE_GENRE, SET_GENRES } from './actions/genre-actions';
+import { SET_SINGLE_BOOK, SET_BOOKS, SET_SINGLE_GENRE, SET_GENRES } from './actions/constants';
 
 function books(state = [], action = {}) {
     switch (action.type) {
