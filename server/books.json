@@ -1,0 +1,188 @@
+{
+  "genres": [
+    {
+      "id": 12575836,
+      "key": 123456,
+      "value": "humor",
+      "text": "Humor"
+    },
+    {
+      "id": 91289416,
+      "key": 23456,
+      "value": "ganaderia",
+      "text": "Ganadería"
+    },
+    {
+      "id": 77050696,
+      "key": 34567,
+      "value": "caballerias",
+      "text": "Caballerías"
+    },
+    {
+      "id": 52107642,
+      "key": 456789,
+      "value": "religion",
+      "text": "Religión"
+    },
+    {
+      "id": 54000505,
+      "key": 567890,
+      "value": "bibliografia",
+      "text": "Bibliografía"
+    },
+    {
+      "id": 87086016,
+      "key": 678901,
+      "value": "geologia",
+      "text": "Geología"
+    },
+    {
+      "id": 7223567,
+      "key": 789012,
+      "value": "entrevista",
+      "text": "Entrevista"
+    }
+  ],
+  "books": [
+    {
+      "id": 7654,
+      "title": "La Cordonera Mantis",
+      "author": "Ebenezer Batista Quintana",
+      "country": "Argentina",
+      "genre": "Humor",
+      "year": 1943,
+      "publisher": "Paradigma Libros",
+      "isbn": "95-0425-858-1",
+      "edition": "Segunda",
+      "price": "$47.14 DLLS"
+    },
+    {
+      "id": 123,
+      "title": "El Patriarca Azul",
+      "author": "Addo Henriquez Roldan",
+      "country": "Argentina",
+      "genre": "Ganadería",
+      "year": 1953,
+      "publisher": "Paradigma Libros",
+      "isbn": "95-0162-572-9",
+      "edition": "Primera",
+      "price": "$82.32 DLLS"
+    },
+    {
+      "id": 109,
+      "title": "La Lluvia Cebra",
+      "author": "Alberto Delagarza Guerra",
+      "country": "Bolivia",
+      "genre": "Política‎",
+      "year": 1961,
+      "publisher": "Editorial Editingri",
+      "isbn": "99-9059-159-8",
+      "edition": "Segunda",
+      "price": "$56.95 DLLS"
+    },
+    {
+      "id": 210,
+      "title": "La Hacendosa Libertador",
+      "author": "Benjamin Briones Fierro",
+      "country": "Colombia",
+      "genre": "Ganadería",
+      "year": 1936,
+      "publisher": "Editorial Solar",
+      "isbn": "95-8738-455-5",
+      "edition": "Primera",
+      "price": "$66.90 DLLS"
+    },
+    {
+      "id": 432,
+      "title": "La Guitarra Motociclista",
+      "author": "Romualdo Coronado Acuna",
+      "country": "Costa Rica",
+      "genre": "Caballerías",
+      "year": 1982,
+      "publisher": "Ediciones Farben",
+      "isbn": "99-7711-661-10",
+      "edition": "Segunda",
+      "price": "$22.80 DLLS"
+    },
+    {
+      "id": 321,
+      "title": "El Taladro Nacionalista",
+      "author": "Gamaliel Cavazos Zapata",
+      "country": "Chile",
+      "genre": "Religión",
+      "year": 1978,
+      "publisher": "Pehuen Editores",
+      "isbn": "95-6347-859-2",
+      "edition": "Primera",
+      "price": "$42.16 DLLS"
+    },
+    {
+      "id": 543,
+      "title": "El Vidrio Juez",
+      "author": "Anan Correa Rocha",
+      "country": "Cuba",
+      "genre": "Bibliografía",
+      "year": 1994,
+      "publisher": "ArteCubano Ediciones",
+      "isbn": "95-9527-067-9",
+      "edition": "Primera",
+      "price": "$29.84 DLLS"
+    },
+    {
+      "id": 654,
+      "title": "La Corona Estadista",
+      "author": "Crisostomo Sevilla Chichon",
+      "country": "Ecuador",
+      "genre": "Caballerías",
+      "year": 1977,
+      "publisher": "Edimpres",
+      "isbn": "99-7865-669-3",
+      "edition": "Primera",
+      "price": "$44.81 DLLS"
+    },
+    {
+      "id": 987,
+      "title": "El Palo Macaco",
+      "author": "Badru Botello Hernandez",
+      "country": "El Salvador",
+      "genre": "Geología",
+      "year": 1950,
+      "publisher": "Editorial Conty",
+      "isbn": "99-9234-873-9",
+      "edition": "Segunda",
+      "price": "$10.44 DLLS"
+    },
+    {
+      "id": 876,
+      "title": "La Muñeca Magistrado",
+      "author": "Edet Luna Quintero",
+      "country": "Guatemala",
+      "genre": "Caballerías",
+      "year": 1981,
+      "publisher": "F&G Editores",
+      "isbn": "99-9222-971-3",
+      "edition": "Segunda",
+      "price": "$2.46 DLLS"
+    },
+    {
+      "id": 765,
+      "title": "La Zapatería Comandante",
+      "author": "Christien Rojo Haro",
+      "country": "Honduras",
+      "genre": "Entrevista",
+      "year": 1990,
+      "publisher": "Ediciones Ramses",
+      "isbn": "99-9264-954-2",
+      "edition": "Primera",
+      "price": "$74.37 DLLS"
+    },
+    {
+      "title": "New Bookie",
+      "author": "Carlos Wu Fei",
+      "country": "United Kingdom",
+      "isbn": "123",
+      "genre": "geologia",
+      "id": "BkggtoaWK"
+    }
+  ]
+}
