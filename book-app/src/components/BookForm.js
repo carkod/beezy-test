@@ -5,7 +5,7 @@ import { Modal, Header, Button, Icon, Transition, Form, Input, Dropdown } from '
 import { connect } from 'react-redux';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
-import { createBook, fetchBookApi } from '../actions/book-actions';
+import { createBook, fetchBookApi, updateBook } from '../actions/book-actions';
 import { fetchGenresApi } from '../actions/genre-actions';
 
 
@@ -37,13 +37,17 @@ class BookForm extends Component {
     if (prevProps.data !== this.props.data) {
       this.setState({
         data: this.props.data,
-        modalOpen: true
+        modalOpen: true,
       })
     }
     if (prevProps.editBookId === null || this.state.data === undefined) {
       this.setState({
         data: this.emptyForm(),
       });
+    } else if (prevProps.editBookId !== this.props.editBookId) {
+      this.setState({
+        editBookId: this.props.editBookId
+      })
     }
     if (prevProps.modalOpen !== this.props.modalOpen) {
       this.setState({
@@ -70,8 +74,7 @@ class BookForm extends Component {
 
   handleChange = (e, { name, value }) => {
     if (!name) {
-      name = e.target.name;
-      value = e.target.value;
+      this.matchGenre()
     }
     const bookData = Object.assign(this.state.data, {
       [name]: value
@@ -80,12 +83,8 @@ class BookForm extends Component {
   }
 
   handleSubmit = () => {
-    // Only for mock server
-    delete this.state.data.id;
-    this.state.data.id = shortid.generate();
-    // non-mock
     if (this.state.editBookId) {
-      this.props.createBook(this.state.data)
+      this.props.updateBook(this.state.data)
       .then(book => {
         console.log('successful book update', book);
         this.setState({ modalOpen: false });
@@ -96,7 +95,6 @@ class BookForm extends Component {
       .then(book => {
         console.log('successful book create', book);
         this.setState({ modalOpen: false });
-
       })
     }
   }
@@ -111,9 +109,15 @@ class BookForm extends Component {
     return title;
   }
 
+  matchGenre() {
+    let matchGenre = this.props.genres.find(x => x.value === this.state.data.genre);
+    matchGenre = matchGenre !== undefined ? matchGenre.text : '';
+    return 
+  }
+
   render() {
-    let matchGenre = this.props.genres.find(x => x.text === this.state.data.genre);
-    matchGenre = matchGenre !== undefined ? matchGenre.value : '';
+    console.log(this.state.matchedGenre)
+    
     const addNewButton =
       <button onClick={() => this.setState({ modalOpen: true })} style={buttonDefaultStyles} >
         <Icon name="plus square" color="green" />
@@ -138,7 +142,7 @@ class BookForm extends Component {
                 <Input autoFocus type="text" name="isbn" placeholder="ISBN code" onChange={this.handleChange} value={this.state.data.isbn} />
               </Form.Field>
               <Form.Field>
-                <Dropdown name="genre" placeholder="Choose genre" search selection options={this.props.genres} onChange={this.handleChange} defaultValue={matchGenre} />
+                <Dropdown name="genre" placeholder="Choose genre" search selection options={this.props.genres} onChange={this.handleChange} value={this.state.data.genre} />
               </Form.Field>
             </Form>
           </Modal.Content>
@@ -173,4 +177,4 @@ function mapStateToProps(state, ownProps) {
   return obj;
 }
 
-export default connect(mapStateToProps, { createBook, fetchGenresApi, fetchBookApi })(BookForm);
+export default connect(mapStateToProps, { createBook, fetchGenresApi, fetchBookApi, updateBook })(BookForm);

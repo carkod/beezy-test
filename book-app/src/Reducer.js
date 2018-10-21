@@ -12,9 +12,9 @@ function books(state = [], action = {}) {
         case SET_SINGLE_BOOK:
             return state;
         case DELETE_BOOK:
-            return [...action.data];
+            return [...state];
         case UPDATE_BOOK:
-            return [...action.data];
+            return [...state];
         default:
             return state;
     }
@@ -28,9 +28,9 @@ const genres = (state = [], action = {}) => {
         case SET_SINGLE_GENRE:
             return state;
         case DELETE_GENRE:
-            return [...action.data];
+            return [...state];
         case UPDATE_GENRE:
-            return [...action.data];
+            return [...state];
         default:
             return state
     }

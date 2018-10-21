@@ -3,43 +3,43 @@
     {
       "id": 12575836,
       "key": 123456,
-      "value": "humor",
+      "value": "Humor",
       "text": "Humor"
     },
     {
       "id": 91289416,
       "key": 23456,
-      "value": "ganaderia",
+      "value": "Ganadería",
       "text": "Ganadería"
     },
     {
       "id": 77050696,
       "key": 34567,
-      "value": "caballerias",
+      "value": "Caballerías",
       "text": "Caballerías"
     },
     {
       "id": 52107642,
       "key": 456789,
-      "value": "religion",
+      "value": "Religión",
       "text": "Religión"
     },
     {
       "id": 54000505,
       "key": 567890,
-      "value": "bibliografia",
+      "value": "Bibliografía",
       "text": "Bibliografía"
     },
     {
       "id": 87086016,
       "key": 678901,
-      "value": "geologia",
+      "value": "Geología",
       "text": "Geología"
     },
     {
       "id": 7223567,
       "key": 789012,
-      "value": "entrevista",
+      "value": "Entrevista",
       "text": "Entrevista"
     }
   ],
@@ -192,25 +192,21 @@
       "title": "La Cordonera Mantis",
       "author": "Ebenezer Batista Quintana",
       "country": "Argentina",
-      "genre": "geologia",
+      "genre": "Humor",
       "year": 1943,
       "publisher": "Paradigma Libros",
       "isbn": "95-0425-858-1",
       "edition": "Segunda",
       "price": "$47.14 DLLS",
-      "id": "V1WVdp77E"
+      "id": "I-NFKrG-I"
     },
     {
-      "title": "La Cordonera Mantis",
-      "author": "Ebenezer Batista Quintana",
-      "country": "Argentina",
-      "genre": "bibliografia",
-      "year": 1943,
-      "publisher": "Paradigma Libros",
-      "isbn": "95-0425-858-1",
-      "edition": "Segunda",
-      "price": "$47.14 DLLS",
-      "id": "rXa3A6XFO"
+      "title": "New Bookie",
+      "author": "Carlos Wu Fei",
+      "country": "United Kingdom",
+      "isbn": "12345",
+      "genre": "Geología",
+      "id": "wqG5V0r05"
     }
   ]
 }
