@@ -48,6 +48,11 @@ class BookForm extends Component {
         data: this.emptyForm(),
       });
     }
+    if (prevProps.modalOpen !== this.props.modalOpen) {
+      this.setState({
+        modalOpen: !this.state.modalOpen,
+      });
+    }
   }
 
   emptyForm() {
@@ -95,25 +100,14 @@ class BookForm extends Component {
   composeTitle() {
     let title;
     if (this.props.data) {
-      if (window.location.href.indexOf('genres') > -1) {
-        title = 'Edit genre'
-      } else {
-        title = 'Edit book'
-      }
-      
+      title = 'Edit book'
     } else {
-      if (window.location.href.indexOf('genres') > -1) {
-        title = 'New genre'
-      } else {
-        title = 'New book'
-      }
-      
+     title = 'New book'
     }
     return title;
   }
 
   render() {
-    console.log(this.state, this.props);
     const addNewButton =
       <button onClick={() => this.setState({ modalOpen: true })} style={buttonDefaultStyles} >
         <Icon name="plus square" color="green" />

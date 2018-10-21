@@ -24,11 +24,9 @@ class Genres extends Component {
 
   componentDidMount = () => {
     this.props.fetchGenresApi();
-    console.log(this.props)
   }
   
   handleDelete = (id) => {
-    console.log('delete::', id);
     this.props.deleteGenre(id).then(res => {
       console.log('genre deleted!!', res);
       this.props.fetchGenresApi();
@@ -42,12 +40,11 @@ class Genres extends Component {
   handleEdit(id) {
     // console.log('edit::', id);
     console.log(id, this.props.genres)
-    this.setState({ editGenreId: id, genres: this.props.genres });
+    this.setState({ editGenreId: id, genres: this.props.genres, modalOpen: !this.state.modalOpen });
   }
 
 
   render() {
-
     if (this.props.genres.length === 0) {
       return (
         <Loader active inline='centered' />
@@ -58,7 +55,7 @@ class Genres extends Component {
       const singleGenre = editGenre ? this.props.genres[editGenre] : null;
       return (
         <div>
-          <GenreForm data={this.props.genres[editGenre]} editBookId={this.state.editGenreId}></GenreForm>
+          <GenreForm data={this.props.genres[editGenre]} editBookId={this.state.editGenreId} modalOpen={this.state.modalOpen}></GenreForm>
           <Listing thead={thead} data={data} handleEdit={this.handleEdit} handleDelete={this.handleDelete} />
         </div>
       )

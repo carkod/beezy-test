@@ -183,6 +183,18 @@
       "isbn": "123",
       "genre": "geologia",
       "id": "BkggtoaWK"
+    },
+    {
+      "title": "La Cordonera Mantis",
+      "author": "Ebenezer Batista Quintana",
+      "country": "Argentina",
+      "genre": "humor",
+      "year": 1943,
+      "publisher": "Paradigma Libros",
+      "isbn": "95-0425-858-1",
+      "edition": "Segunda",
+      "price": "$47.14 DLLS",
+      "id": "KUJ3YUSBI"
     }
   ]
 }

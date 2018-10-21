@@ -1,9 +1,10 @@
 /* eslint-disable */
 
 import React, { Component } from 'react';
-import { Menu, Table, Icon, Loader } from 'semantic-ui-react';
+import { Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
+
 import { fetchBooksApi, deleteBook } from '../actions/book-actions';
 import Listing from '../components/Listing';
 import BookForm from '../components/BookForm';
@@ -25,19 +26,15 @@ class Books extends Component {
   }
 
   handleDelete = (id) => {
-    console.log('delete::', id);
     this.props.deleteBook(id).then(res => {
       console.log('book deleted!!', res);
       this.props.fetchBooksApi();
     })
   }
 
-  handleCreate = () => {
-
-  }
-
   handleEdit(id) {
-    this.setState({ editBookId: id, books: this.props.books });
+    console.log('handleEdit::', this.state.modalOpen)
+    this.setState({ editBookId: id, books: this.props.books, modalOpen: !this.state.modalOpen });
   }
 
   render() {
@@ -51,7 +48,7 @@ class Books extends Component {
       const singleBook = editBook ? this.props.books[editBook] : null;
       return (
         <div>
-          <BookForm data={this.props.books[editBook]} editBookId={this.state.editBookId} />
+          <BookForm data={this.props.books[editBook]} editBookId={this.state.editBookId} modalOpen={this.state.modalOpen}/>
           <Listing thead={thead} data={data} handleEdit={this.handleEdit} handleDelete={this.handleDelete} />
         </div>
       )
@@ -66,4 +63,3 @@ function mapStateToProps(state, props) {
 }
 
 export default connect(mapStateToProps, { fetchBooksApi, deleteBook })(Books);
-// export default connect(mapStateToProps, { createBook, fetchBooksApi, deleteCV, copyCV })(Listing);

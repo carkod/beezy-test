@@ -45,6 +45,11 @@ class GenreForm extends Component {
         data: this.emptyForm(),
       });
     }
+    if (prevProps.modalOpen !== this.props.modalOpen) {
+      this.setState({
+        modalOpen: !this.state.modalOpen,
+      });
+    }
   }
 
   emptyForm() {
@@ -117,9 +122,6 @@ class GenreForm extends Component {
               <Form.Field>
                 <Input autoFocus type="text" name="value" placeholder="Value" onChange={this.handleChange} value={this.state.data.value} />
               </Form.Field>
-              {/* <Form.Field>
-                <Input autoFocus type="text" name="date" placeholder="Country" onChange={this.handleChange} value={this.state.data.key} />
-              </Form.Field> */}
             </Form>
           </Modal.Content>
           <Modal.Actions>
@@ -134,15 +136,9 @@ class GenreForm extends Component {
 }
 
 GenreForm.propTypes = {
-  title: PropTypes.string,
-  author: PropTypes.string,
-  country: PropTypes.string,
-  genre: PropTypes.string,
-  year: PropTypes.number,
-  publisher: PropTypes.string,
-  isbn: PropTypes.string,
-  edition: PropTypes.string,
-  price: PropTypes.string
+  text: PropTypes.string,
+  value: PropTypes.string,
+  key: PropTypes.number,
 };
 
 function mapStateToProps(state, ownProps) {

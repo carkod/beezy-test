@@ -44,9 +44,7 @@ export function deleteGenre(id) {
            }
         }) 
         .then(handleResponse)
-        .then(data => {
-            dispatch(cvDeleted(id))
-        });   
+        .then(data => dispatch(cvDeleted(id)));   
     }
 }
 
