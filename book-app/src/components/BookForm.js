@@ -20,10 +20,8 @@ class BookForm extends Component {
 
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       modalOpen: false,
-      editBookId: null,
       data: {
         id: shortid.generate(),
         title: '',
@@ -36,7 +34,6 @@ class BookForm extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(this.state, this.props);
     if (prevProps.data !== this.props.data) {
       this.setState({
         data: this.props.data,
@@ -61,7 +58,7 @@ class BookForm extends Component {
       title: '',
       author: '',
       country: '',
-      genre: this.props.genres,
+      genre: '',
       year: null,
       publisher: '',
       isbn: '',
@@ -87,14 +84,21 @@ class BookForm extends Component {
     delete this.state.data.id;
     this.state.data.id = shortid.generate();
     // non-mock
-
-    this.props.createBook(this.state.data)
+    if (this.state.editBookId) {
+      this.props.createBook(this.state.data)
       .then(book => {
-        console.log('successful book submit', book);
+        console.log('successful book update', book);
         this.setState({ modalOpen: false });
 
       })
+    } else {
+      this.props.createBook(this.state.data)
+      .then(book => {
+        console.log('successful book create', book);
+        this.setState({ modalOpen: false });
 
+      })
+    }
   }
 
   composeTitle() {
@@ -108,17 +112,19 @@ class BookForm extends Component {
   }
 
   render() {
+    let matchGenre = this.props.genres.find(x => x.text === this.state.data.genre);
+    matchGenre = matchGenre !== undefined ? matchGenre.value : '';
     const addNewButton =
       <button onClick={() => this.setState({ modalOpen: true })} style={buttonDefaultStyles} >
         <Icon name="plus square" color="green" />
       </button>;
-    
     return (
       <Transition duration={500}>
         <Modal trigger={addNewButton} open={this.state.modalOpen} onClose={() => this.setState({ modalOpen: false })} closeIcon>
           <Header icon='file text outline' content={this.composeTitle()} />
           <Modal.Content>
             <Form id="newbook" onSubmit={this.handleSubmit}>
+            {console.log(this.state)}
               <Form.Field>
                 <Input autoFocus type="text" name="title" placeholder="book title" onChange={this.handleChange} value={this.state.data.title} />
               </Form.Field>
@@ -132,8 +138,7 @@ class BookForm extends Component {
                 <Input autoFocus type="text" name="isbn" placeholder="ISBN code" onChange={this.handleChange} value={this.state.data.isbn} />
               </Form.Field>
               <Form.Field>
-                <Dropdown name="genre" placeholder="Choose genre" search selection options={this.props.genres} onChange={this.handleChange} value={this.state.data.genre} />
-                {/* <Input autoFocus type="text" name="price" placeholder="Price" onChange={this.handleChange} /> */}
+                <Dropdown name="genre" placeholder="Choose genre" search selection options={this.props.genres} onChange={this.handleChange} defaultValue={matchGenre} />
               </Form.Field>
             </Form>
           </Modal.Content>
@@ -164,7 +169,6 @@ function mapStateToProps(state, ownProps) {
   const obj = {
     genres: state.genres,
     data: ownProps.data,
-    editBookId: ownProps.editBookId
   }
   return obj;
 }

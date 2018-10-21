@@ -39,7 +39,6 @@ class Genres extends Component {
 
   handleEdit(id) {
     // console.log('edit::', id);
-    console.log(id, this.props.genres)
     this.setState({ editGenreId: id, genres: this.props.genres, modalOpen: !this.state.modalOpen });
   }
 

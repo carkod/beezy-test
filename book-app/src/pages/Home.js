@@ -23,6 +23,15 @@ export default class Home extends Component {
             ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.
             Curabitur ullamcorper ultricies nisi.
           </p>
+          <h3>Características de este proyecto</h3>
+          <p>Concepto de "componetización funcional":</p>
+          <ul>
+            <li>Maximización del uso de la componetización (siempre que se pueda, componetizar, aunque en el futuro haya que refactorizar)</li>
+            <li>Seguimiento de una logica funcional: Componentes presentacionales y componentes contenedores (e.g. Listing)</li>
+            <li>Inmutabilidad, sobre todo en gestión de estados. Evitando el uso de herencia (inheritace) con las clases (difícil para alguien acostumbrado al concepto de OOP de Angular por ejemplo)</li>
+            <li>Como consecuencia, escabilidad, código simple, en caso de añadir nuevas feature, siempre crear nuevos HOC o simplemente funciones puras (return nextProp)</li>
+            
+          </ul>
       </div>
     );
   }

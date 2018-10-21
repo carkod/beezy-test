@@ -33,7 +33,6 @@ class Books extends Component {
   }
 
   handleEdit(id) {
-    console.log('handleEdit::', this.state.modalOpen)
     this.setState({ editBookId: id, books: this.props.books, modalOpen: !this.state.modalOpen });
   }
 

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { environment } from '../environment/environment';
-import { DELETE_BOOK, CREATE_BOOK, SET_BOOKS, SET_SINGLE_BOOK } from './constants';
+import { DELETE_BOOK, CREATE_BOOK, SET_BOOKS, SET_SINGLE_BOOK, UPDATE_BOOK } from './constants';
 
 async function handleResponse (response) {
     if (response.ok) {
@@ -15,6 +15,13 @@ async function handleResponse (response) {
 export function bookCreated (data) {
     return {
         type: CREATE_BOOK,
+        data
+    }
+}
+
+export function bookUpdated (data) {
+    return {
+        type: UPDATE_BOOK,
         data
     }
 }
@@ -90,5 +97,19 @@ export function fetchBookApi(id) {
         })
         .then(handleResponse)
         .then(data => dispatch(setSingleBook(data)))
+    }
+}
+
+export function updateBook(data) {
+    return dispatch => {
+        return fetch(`${environment.host}/books/${data.id}`, {
+           method: 'put',
+           body: JSON.stringify(data),
+           headers: {
+               "Content-Type" : "application/json",
+           }
+        })
+        .then(handleResponse).then(data => dispatch(bookUpdated(data)));   
+        
     }
 }

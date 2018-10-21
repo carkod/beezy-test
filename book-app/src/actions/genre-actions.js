@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { environment } from '../environment/environment';
-import { SET_GENRES, SET_SINGLE_GENRE, CREATE_GENRE, DELETE_GENRE } from './constants';
+import { SET_GENRES, SET_SINGLE_GENRE, CREATE_GENRE, DELETE_GENRE, UPDATE_GENRE } from './constants';
 
 
 function handleResponse (response) {
@@ -10,6 +10,13 @@ function handleResponse (response) {
         let error = new Error(response.statusText);
         error.response = response;
         throw error;
+    }
+}
+
+export function genreUpdated(data) {
+    return {
+        type: UPDATE_GENRE,
+        data
     }
 }
 
@@ -88,5 +95,19 @@ export function fetchGenreApi(id) {
         fetch(`${environment.host}/genres/${id}`)
         .then(handleResponse)
         .then(data => dispatch(setgenres(data)))
+    }
+}
+
+export function updateGenre(data) {
+    return dispatch => {
+        return fetch(`${environment.host}/genres/${data.id}`, {
+           method: 'put',
+           body: JSON.stringify(data),
+           headers: {
+               "Content-Type" : "application/json",
+           }
+        })
+        .then(handleResponse).then(data => dispatch(genreCreated(data)));   
+        
     }
 }
