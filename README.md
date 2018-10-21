@@ -8,3 +8,10 @@ Start web app
 
 Coverage tests:
 ´npm test -- --coverage´
+
+
+TODO:
+
+- Add messsage for action notifications
+- Run tests
+- Publish to github pages

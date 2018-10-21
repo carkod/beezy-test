@@ -5,7 +5,7 @@ import { Modal, Header, Button, Icon, Transition, Form, Input, Dropdown } from '
 import { connect } from 'react-redux';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
-import { fetchGenresApi, createGenre, fetchGenreApi } from '../actions/genre-actions';
+import { fetchGenresApi, createGenre, fetchGenreApi, updateGenre } from '../actions/genre-actions';
 
 
 const buttonDefaultStyles = {
@@ -44,6 +44,10 @@ class GenreForm extends Component {
       this.setState({
         data: this.emptyForm(),
       });
+    } else if (prevProps.editBookId !== this.props.editBookId) {
+      this.setState({
+        editBookId: this.props.editBookId
+      })
     }
     if (prevProps.modalOpen !== this.props.modalOpen) {
       this.setState({
@@ -80,18 +84,21 @@ class GenreForm extends Component {
   }
 
   handleSubmit = () => {
-    // Only for mock server
-    delete this.state.data.id;
-    this.state.data.id = shortid.generate();
-    // non-mock
-
-    this.props.createGenre(this.state.data)
-      .then(genre => {
-        console.log('successful genre submit', genre);
-        this.setState({ modalOpen: false, editGenreId: null });
+    if (this.state.editBookId) {
+      this.props.updateGenre(this.state.data)
+      .then(book => {
+        console.log('successful book update', book);
+        this.setState({ modalOpen: false });
 
       })
+    } else {
+      this.props.createGenre(this.state.data)
+        .then(genre => {
+          console.log('successful genre submit', genre);
+          this.setState({ modalOpen: false });
 
+        })
+    }
   }
 
   composeTitle() {
@@ -99,7 +106,7 @@ class GenreForm extends Component {
     if (this.props.data) {
       title = 'Edit genre'
     } else {
-     title = 'New genre'
+      title = 'New genre'
     }
     return title;
   }
@@ -109,7 +116,7 @@ class GenreForm extends Component {
       <button onClick={() => this.setState({ modalOpen: true })} style={buttonDefaultStyles} >
         <Icon name="plus square" color="green" />
       </button>;
-    
+
     return (
       <Transition duration={500}>
         <Modal trigger={addNewButton} open={this.state.modalOpen} onClose={() => this.setState({ modalOpen: false })} closeIcon>
@@ -150,4 +157,4 @@ function mapStateToProps(state, ownProps) {
   return obj;
 }
 
-export default connect(mapStateToProps, { createGenre, fetchGenresApi, fetchGenreApi })(GenreForm);
+export default connect(mapStateToProps, { createGenre, fetchGenresApi, fetchGenreApi, updateGenre })(GenreForm);
