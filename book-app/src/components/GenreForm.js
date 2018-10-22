@@ -112,13 +112,13 @@ class GenreForm extends Component {
 
   render() {
     const addNewButton =
-      <button onClick={() => this.setState({ modalOpen: true, editBookId: null, data: this.emptyForm() })} style={buttonDefaultStyles} >
+      <button onClick={() => this.setState({ modalOpen: true, data: this.emptyForm(), editBookId: null })} style={buttonDefaultStyles} >
         <Icon name="plus square" color="green" /> Add new genre
       </button>;
 
     return (
       <Transition duration={500}>
-        <Modal trigger={addNewButton} open={this.state.modalOpen} onClose={() => this.setState({ modalOpen: false, editBookId: null, data: this.emptyForm() })} closeIcon>
+        <Modal trigger={addNewButton} open={this.state.modalOpen} onClose={() => this.setState({ modalOpen: false, data: this.emptyForm() })} closeIcon>
           <Header icon='file text outline' content={this.composeTitle()} />
           <Modal.Content>
             <Form id="newgenre" onSubmit={this.handleSubmit}>

@@ -67,7 +67,6 @@ class Books extends Component {
       const data = this.state.books || this.props.books;
       const editBook = data.findIndex(x => x.id === this.state.editBookId) !== -1 ? data.findIndex(x => x.id === this.state.editBookId) : {};
       const singleBook = editBook ? data[editBook] : null;
-      console.log('proprs for bookfrom::', data, editBook)
       return (
         <div>
           <BookForm data={data[editBook]} editBookId={this.state.editBookId} modalOpen={this.state.modalOpen}/>

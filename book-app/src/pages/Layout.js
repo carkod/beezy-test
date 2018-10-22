@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import Nav from '../components/Nav';
+import Notification from '../components/Notification';
 import 'semantic-ui-css/semantic.min.css';
 
 
@@ -17,9 +18,10 @@ class Layout extends Component {
   }
 
   render() {
-
+    
     return (
       <div className="layout">
+          <Notification messageOpen={this.props.messageOpen} messageContent={this.props.messageContent}></Notification>
           <Nav />
         <Container>
           {this.props.children}

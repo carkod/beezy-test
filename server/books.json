@@ -41,20 +41,6 @@
       "title": "",
       "text": "Humor",
       "value": "Humor"
-    },
-    {
-      "id": "DBrEy4lAa",
-      "title": "",
-      "author": "",
-      "country": "",
-      "genre": "",
-      "year": null,
-      "publisher": "",
-      "isbn": "",
-      "edition": "",
-      "price": "",
-      "text": "Juegos",
-      "value": "Juegos"
     }
   ],
   "books": [
@@ -207,6 +193,18 @@
       "country": "Spain",
       "isbn": "1234567890",
       "genre": "Gaming"
+    },
+    {
+      "id": "c4lFxXzag",
+      "title": "New Bookie",
+      "author": "Carlos Wu Fei",
+      "country": "United Kingdom",
+      "genre": "Juegos",
+      "year": null,
+      "publisher": "",
+      "isbn": "1234567890",
+      "edition": "",
+      "price": ""
     }
   ]
 }
