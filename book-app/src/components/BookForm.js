@@ -101,7 +101,7 @@ class BookForm extends Component {
       this.props.createBook(this.state.data)
       .then(book => {
         console.log('successful book create', book);
-        this.setState({ modalOpen: false });
+        this.setState({ modalOpen: false, messageOpen: true, messageText: 'successful book update' });
       })
     }
   }

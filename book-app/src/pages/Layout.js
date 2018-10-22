@@ -21,7 +21,6 @@ class Layout extends Component {
     
     return (
       <div className="layout">
-          <Notification messageOpen={this.props.messageOpen} messageContent={this.props.messageContent}></Notification>
           <Nav />
         <Container>
           {this.props.children}

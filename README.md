@@ -19,7 +19,6 @@ After run build:
 
 
 TODO:
-- Delete genre, books will lose one genre
 - Add messsage for action notifications
 - Run tests
 - Publish to github pages

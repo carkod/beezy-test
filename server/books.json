@@ -205,6 +205,30 @@
       "isbn": "1234567890",
       "edition": "",
       "price": ""
+    },
+    {
+      "id": "jwzd-x98i",
+      "title": "New Bookie",
+      "author": "Carlos Wu Fei",
+      "country": "Spain",
+      "genre": "Humor",
+      "year": null,
+      "publisher": "",
+      "isbn": "123098765",
+      "edition": "",
+      "price": ""
+    },
+    {
+      "id": "gIr7uy0fP",
+      "title": "Book",
+      "author": "Sofia",
+      "country": "Spain",
+      "genre": "Entrevista",
+      "year": null,
+      "publisher": "",
+      "isbn": "3470139827",
+      "edition": "",
+      "price": ""
     }
   ]
 }
