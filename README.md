@@ -1,5 +1,5 @@
 Start server
-´cd server´
+`cd server`
 ´npm start´
 
 Start web app
