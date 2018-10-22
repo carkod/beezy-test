@@ -119,7 +119,7 @@ class BookForm extends Component {
   render() {
     const addNewButton =
       <button onClick={() => this.setState({ modalOpen: true, editBookId: null })} style={buttonDefaultStyles} >
-        <Icon name="plus square" color="green" />
+        <Icon name="plus square" color="green" /> Add new
       </button>;
     return (
       <Transition duration={500}>

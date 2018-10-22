@@ -72,7 +72,7 @@ class Books extends Component {
         <div>
           <BookForm data={data[editBook]} editBookId={this.state.editBookId} modalOpen={this.state.modalOpen}/>
           <FilterGenres updateListing={this.updateListing}/>
-          <Button onClick={this.resetFilter()}>Reset Filter</Button>
+          {/* <Button onClick={this.resetFilter()}>Reset Filter</Button> */}
           <Listing thead={thead} data={data} handleEdit={this.handleEdit} handleDelete={this.handleDelete} />
         </div>
       )

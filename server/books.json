@@ -41,6 +41,20 @@
       "title": "",
       "text": "Humor",
       "value": "Humor"
+    },
+    {
+      "id": "DBrEy4lAa",
+      "title": "",
+      "author": "",
+      "country": "",
+      "genre": "",
+      "year": null,
+      "publisher": "",
+      "isbn": "",
+      "edition": "",
+      "price": "",
+      "text": "Juegos",
+      "value": "Juegos"
     }
   ],
   "books": [
@@ -175,6 +189,24 @@
       "isbn": "99-9264-954-2",
       "edition": "Primera",
       "price": "$74.37 DLLS"
+    },
+    {
+      "id": "CeTM66J3C",
+      "title": "",
+      "text": "New Bookie",
+      "author": "Carlos",
+      "country": "Spain",
+      "isbn": "124578960",
+      "genre": "Entrevista"
+    },
+    {
+      "id": "zlKyIIqgc",
+      "title": "",
+      "text": "Second Bookie",
+      "author": "Carlos Wu",
+      "country": "Spain",
+      "isbn": "1234567890",
+      "genre": "Gaming"
     }
   ]
 }
