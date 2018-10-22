@@ -8,6 +8,7 @@ import shortid from 'shortid';
 import { fetchBooksApi, deleteBook } from '../actions/book-actions';
 import Listing from '../components/Listing';
 import BookForm from '../components/BookForm';
+import FilterGenres from '../components/FilterGenres';
 
 const thead = ['TITLE', 'AUTHOR', 'COUNTRY', 'GENRE', 'PRICE', 'ACTIONS'];
 
@@ -36,18 +37,29 @@ class Books extends Component {
     this.setState({ editBookId: id, books: this.props.books, modalOpen: !this.state.modalOpen });
   }
 
+  updateListing(value) {
+    const filteredBooks = this.props.books.filter(book => {
+      return book.genre === value;
+    })
+    this.setState({
+      books: filteredBooks
+    })
+  }
+
   render() {
     if (this.props.books.length === 0) {
       return (
         <Loader active inline='centered' />
       )
     } else {
-      const data = this.props.books;
+      const data = this.state.books;
+      console.log(this.state)
       const editBook = data ? this.props.books.findIndex(x => x.id === this.state.editBookId) : null;
       const singleBook = editBook ? this.props.books[editBook] : null;
       return (
         <div>
           <BookForm data={this.props.books[editBook]} editBookId={this.state.editBookId} modalOpen={this.state.modalOpen}/>
+          <FilterGenres updateListing={this.updateListing}/>
           <Listing thead={thead} data={data} handleEdit={this.handleEdit} handleDelete={this.handleDelete} />
         </div>
       )

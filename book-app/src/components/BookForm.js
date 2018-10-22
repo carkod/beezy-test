@@ -109,15 +109,7 @@ class BookForm extends Component {
     return title;
   }
 
-  matchGenre() {
-    let matchGenre = this.props.genres.find(x => x.value === this.state.data.genre);
-    matchGenre = matchGenre !== undefined ? matchGenre.text : '';
-    return 
-  }
-
   render() {
-    console.log(this.state.matchedGenre)
-    
     const addNewButton =
       <button onClick={() => this.setState({ modalOpen: true })} style={buttonDefaultStyles} >
         <Icon name="plus square" color="green" />
