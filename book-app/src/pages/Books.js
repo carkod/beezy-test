@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import React, { Component } from 'react';
-import { Loader } from 'semantic-ui-react';
+import { Loader, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
 
@@ -19,11 +19,19 @@ class Books extends Component {
     this.state = {};
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+    this.updateListing = this.updateListing.bind(this);
+    this.resetFilter = this.resetFilter.bind(this);
   }
 
 
   componentDidMount = () => {
     this.props.fetchBooksApi();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.books !== this.props.books) {
+      this.setState({ books: this.props.books })
+    }
   }
 
   handleDelete = (id) => {
@@ -38,12 +46,16 @@ class Books extends Component {
   }
 
   updateListing(value) {
-    const filteredBooks = this.props.books.filter(book => {
+    const books = this.props.books;
+    const filteredBooks = books.filter(book => {
       return book.genre === value;
     })
-    this.setState({
-      books: filteredBooks
-    })
+    console.log(filteredBooks);
+    this.setState({ books: filteredBooks })
+  }
+
+  resetFilter() {
+    // this.setState({ books: this.props.books })
   }
 
   render() {
@@ -52,14 +64,15 @@ class Books extends Component {
         <Loader active inline='centered' />
       )
     } else {
-      const data = this.state.books;
-      console.log(this.state)
-      const editBook = data ? this.props.books.findIndex(x => x.id === this.state.editBookId) : null;
-      const singleBook = editBook ? this.props.books[editBook] : null;
+      const data = this.state.books || this.props.books;
+      const editBook = data.findIndex(x => x.id === this.state.editBookId) !== -1 ? data.findIndex(x => x.id === this.state.editBookId) : {};
+      const singleBook = editBook ? data[editBook] : null;
+      console.log('proprs for bookfrom::', data, editBook)
       return (
         <div>
-          <BookForm data={this.props.books[editBook]} editBookId={this.state.editBookId} modalOpen={this.state.modalOpen}/>
+          <BookForm data={data[editBook]} editBookId={this.state.editBookId} modalOpen={this.state.modalOpen}/>
           <FilterGenres updateListing={this.updateListing}/>
+          <Button onClick={this.resetFilter()}>Reset Filter</Button>
           <Listing thead={thead} data={data} handleEdit={this.handleEdit} handleDelete={this.handleDelete} />
         </div>
       )
@@ -68,9 +81,12 @@ class Books extends Component {
 }
 
 function mapStateToProps(state, props) {
-  return {
-    books: state.books
+  if (state.books) {
+    return {
+      books: state.books
+    }
   }
+  
 }
 
 export default connect(mapStateToProps, { fetchBooksApi, deleteBook })(Books);

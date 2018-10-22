@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import shortid from 'shortid';
 
-import { fetchGenresApi, createGenre } from '../actions/genre-actions';
+import { fetchGenresApi, createGenre, deleteGenre } from '../actions/genre-actions';
 import GenreForm from '../components/GenreForm';
 import Listing from '../components/Listing';
 
@@ -21,7 +21,6 @@ class Genres extends Component {
     this.handleEdit = this.handleEdit.bind(this);
   }
 
-
   componentDidMount = () => {
     this.props.fetchGenresApi();
   }
@@ -32,11 +31,6 @@ class Genres extends Component {
       this.props.fetchGenresApi();
     })
   }
-
-  handleCreate = () => {
-
-  }
-
   handleEdit(id) {
     // console.log('edit::', id);
     this.setState({ editGenreId: id, genres: this.props.genres, modalOpen: !this.state.modalOpen });
@@ -64,11 +58,9 @@ class Genres extends Component {
 }
 
 function mapStateToProps(state, props) {
-  console.log(state)
   return {
     genres: state.genres
   }
 }
 
-export default connect(mapStateToProps, { fetchGenresApi })(Genres);
-// export default connect(mapStateToProps, { createGenre, fetchGenresApi, deleteCV, copyCV })(Listing);
+export default connect(mapStateToProps, { fetchGenresApi, deleteGenre })(Genres);

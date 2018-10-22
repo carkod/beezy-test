@@ -35,10 +35,17 @@ class BookForm extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.data !== this.props.data) {
-      this.setState({
-        data: this.props.data,
-        modalOpen: true,
-      })
+      if (this.props.data === undefined) {
+        this.setState({
+          data: this.emptyForm()
+        })
+      } else {
+        this.setState({
+          data: this.props.data,
+          modalOpen: true,
+        })
+      }
+      
     }
     if (prevProps.editBookId === null || this.state.data === undefined) {
       this.setState({
@@ -111,18 +118,17 @@ class BookForm extends Component {
 
   render() {
     const addNewButton =
-      <button onClick={() => this.setState({ modalOpen: true })} style={buttonDefaultStyles} >
+      <button onClick={() => this.setState({ modalOpen: true, editBookId: null })} style={buttonDefaultStyles} >
         <Icon name="plus square" color="green" />
       </button>;
     return (
       <Transition duration={500}>
-        <Modal trigger={addNewButton} open={this.state.modalOpen} onClose={() => this.setState({ modalOpen: false })} closeIcon>
+        <Modal trigger={addNewButton} open={this.state.modalOpen} onClose={() => this.setState({ modalOpen: false, editBookId: null })} closeIcon>
           <Header icon='file text outline' content={this.composeTitle()} />
           <Modal.Content>
             <Form id="newbook" onSubmit={this.handleSubmit}>
-            {console.log(this.state)}
               <Form.Field>
-                <Input autoFocus type="text" name="title" placeholder="book title" onChange={this.handleChange} value={this.state.data.title} />
+                <Input autoFocus type="text" name="text" placeholder="book title" onChange={this.handleChange} value={this.state.data.text} />
               </Form.Field>
               <Form.Field>
                 <Input autoFocus type="text" name="author" placeholder="Book author" onChange={this.handleChange} value={this.state.data.author} />

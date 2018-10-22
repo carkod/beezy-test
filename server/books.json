@@ -1,12 +1,6 @@
 {
   "genres": [
     {
-      "id": 12575836,
-      "key": 123456,
-      "value": "Humor",
-      "text": "Humor"
-    },
-    {
       "id": 91289416,
       "key": 23456,
       "value": "Ganadería",
@@ -43,10 +37,10 @@
       "text": "Entrevista"
     },
     {
-      "key": 7987546232,
-      "value": "Humor",
+      "id": "wBgjrkf4A",
+      "title": "",
       "text": "Humor",
-      "id": "aCpj9BJPs"
+      "value": "Humor"
     }
   ],
   "books": [
@@ -181,38 +175,6 @@
       "isbn": "99-9264-954-2",
       "edition": "Primera",
       "price": "$74.37 DLLS"
-    },
-    {
-      "title": "La Cordonera Mantis",
-      "author": "Ebenezer Batista Quintana",
-      "country": "Argentina",
-      "genre": "Humor",
-      "year": 1943,
-      "publisher": "Paradigma Libros",
-      "isbn": "95-0425-858-1",
-      "edition": "Segunda",
-      "price": "$47.14 DLLS",
-      "id": "CLsQPtSEK"
-    },
-    {
-      "title": "La Cordonera Mantis",
-      "author": "Ebenezer Batista Quintana",
-      "country": "Argentina",
-      "genre": "Humor",
-      "year": 1943,
-      "publisher": "Paradigma Libros",
-      "isbn": "95-0425-858-1",
-      "edition": "Segunda",
-      "price": "$47.14 DLLS",
-      "id": "I-NFKrG-I"
-    },
-    {
-      "title": "New Bookie",
-      "author": "Carlos Wu Fei",
-      "country": "United Kingdom",
-      "isbn": "12345",
-      "genre": "Geología",
-      "id": "wqG5V0r05"
     }
   ]
 }

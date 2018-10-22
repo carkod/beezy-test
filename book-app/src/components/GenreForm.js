@@ -62,7 +62,7 @@ class GenreForm extends Component {
       title: '',
       author: '',
       country: '',
-      genre: this.props.genres,
+      genre: '',
       year: null,
       publisher: '',
       isbn: '',
@@ -119,12 +119,12 @@ class GenreForm extends Component {
 
     return (
       <Transition duration={500}>
-        <Modal trigger={addNewButton} open={this.state.modalOpen} onClose={() => this.setState({ modalOpen: false })} closeIcon>
+        <Modal trigger={addNewButton} open={this.state.modalOpen} onClose={() => this.setState({ modalOpen: false, editBookId: null })} closeIcon>
           <Header icon='file text outline' content={this.composeTitle()} />
           <Modal.Content>
             <Form id="newgenre" onSubmit={this.handleSubmit}>
               <Form.Field>
-                <Input autoFocus type="text" name="name" placeholder="Genre name" onChange={this.handleChange} value={this.state.data.text} />
+                <Input autoFocus type="text" name="text" placeholder="Genre name" onChange={this.handleChange} value={this.state.data.text} />
               </Form.Field>
               <Form.Field>
                 <Input autoFocus type="text" name="value" placeholder="Value" onChange={this.handleChange} value={this.state.data.value} />

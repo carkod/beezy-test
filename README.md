@@ -9,6 +9,11 @@ Start web app
 Coverage tests:
 ´npm test -- --coverage´
 
+After run build:
+
+  `npm install -g serve`
+  `serve -s build`
+
 
 TODO:
 - Delete genre, books will lose one genre
