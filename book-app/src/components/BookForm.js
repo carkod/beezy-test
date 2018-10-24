@@ -16,7 +16,7 @@ const buttonDefaultStyles = {
   outline: 'none',
 }
 
-class BookForm extends Component {
+export class BookForm extends Component {
 
   constructor(props) {
     super(props);
@@ -140,7 +140,7 @@ class BookForm extends Component {
                 <Input autoFocus type="text" name="isbn" placeholder="ISBN code" onChange={this.handleChange} value={this.state.data.isbn} />
               </Form.Field>
               <Form.Field>
-                <Dropdown name="genre" placeholder="Choose genre" search selection options={this.props.genres} onChange={this.handleChange} value={this.state.data.genre} />
+                {this.props.genres ? <Dropdown name="genre" placeholder="Choose genre" search selection options={this.props.genres} onChange={this.handleChange} value={this.state.data.genre} /> : ''}
               </Form.Field>
             </Form>
           </Modal.Content>

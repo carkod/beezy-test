@@ -12,7 +12,7 @@ import FilterGenres from '../components/FilterGenres';
 
 const thead = ['TITLE', 'AUTHOR', 'COUNTRY', 'GENRE', 'PRICE', 'ACTIONS'];
 
-class Books extends Component {
+export class Books extends Component {
 
   constructor(props) {
     super(props);
@@ -50,7 +50,6 @@ class Books extends Component {
     const filteredBooks = books.filter(book => {
       return book.genre === value;
     })
-    console.log(filteredBooks);
     this.setState({ books: filteredBooks })
   }
 
@@ -59,7 +58,7 @@ class Books extends Component {
   }
 
   render() {
-    if (this.props.books.length === 0) {
+    if (this.props.books === undefined || this.props.books.length === 0) {
       return (
         <Loader active inline='centered' />
       )
