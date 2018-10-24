@@ -2,7 +2,7 @@
 
 import { combineReducers } from 'redux';
 
-import { SET_SINGLE_BOOK, SET_BOOKS, SET_SINGLE_GENRE, SET_GENRES, DELETE_BOOK, DELETE_GENRE, UPDATE_BOOK, UPDATE_GENRE } from './actions/constants';
+import { SET_SINGLE_BOOK, SET_BOOKS, SET_SINGLE_GENRE, SET_GENRES, DELETE_BOOK, DELETE_GENRE, UPDATE_BOOK, UPDATE_GENRE, CREATE_GENRE } from './actions/constants';
 
 function books(state = [], action = {}) {
     switch (action.type) {
@@ -36,5 +36,22 @@ const genres = (state = [], action = {}) => {
     }
 }
 
-export default combineReducers({ books, genres });
+const notification = (state = [], action = {}) => {
+    console.log(action);
+    switch (action.type) {
+        case DELETE_GENRE:
+            return {
+                messageOpen: action.messageOpen,
+                messageText: action.messageText
+            };
+        case UPDATE_GENRE:
+            return [...action.messageOpen, ...action.messageText];
+        case CREATE_GENRE:
+            return  state;
+        default:
+            return state;
+    }
+}
+
+export default combineReducers({ books, genres, notification });
 

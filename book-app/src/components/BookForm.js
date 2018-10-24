@@ -94,14 +94,14 @@ class BookForm extends Component {
       this.props.updateBook(this.state.data)
       .then(book => {
         console.log('successful book update', book);
-        this.setState({ modalOpen: false, messageOpen: true, messageText: 'successful book update' });
+        this.setState({ modalOpen: false });
 
       })
     } else {
       this.props.createBook(this.state.data)
       .then(book => {
         console.log('successful book create', book);
-        this.setState({ modalOpen: false, messageOpen: true, messageText: 'successful book update' });
+        this.setState({ modalOpen: false });
       })
     }
   }

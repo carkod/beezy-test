@@ -16,7 +16,9 @@ function handleResponse (response) {
 export function genreUpdated(data) {
     return {
         type: UPDATE_GENRE,
-        data
+        data,
+        messageOpen: true,
+        messageText: 'Genre updated!'
     }
 }
 
@@ -37,14 +39,18 @@ export function setSingleBook(data) {
 export function genreDeleted(id) {
     return {
         type: DELETE_GENRE,
-        id
+        id,
+        messageOpen: true,
+        messageText: 'Genre deleted!!'
     }
 }
 
 export function genreCreated(data) {
     return {
         type: CREATE_GENRE,
-        data
+        data,
+        messageOpen: true,
+        messageText: 'Genre created!'
     }
 }
 
