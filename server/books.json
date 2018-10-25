@@ -57,20 +57,6 @@
       "value": "Autobiografía"
     },
     {
-      "id": "SiA1LtwKo",
-      "title": "",
-      "author": "",
-      "country": "",
-      "genre": "",
-      "year": null,
-      "publisher": "",
-      "isbn": "",
-      "edition": "",
-      "price": "",
-      "text": "New Generation",
-      "value": "New Generation"
-    },
-    {
       "id": "VN_aHgDnr",
       "title": "",
       "author": "",
@@ -97,6 +83,20 @@
       "price": "",
       "text": "Prueba",
       "value": "Prueba"
+    },
+    {
+      "id": "qB_yVNKE0",
+      "title": "",
+      "author": "",
+      "country": "",
+      "genre": "",
+      "year": null,
+      "publisher": "",
+      "isbn": "",
+      "edition": "",
+      "price": "",
+      "text": "Teatro",
+      "value": "Teatro"
     }
   ],
   "books": [
@@ -233,24 +233,6 @@
       "price": "$74.37 DLLS"
     },
     {
-      "id": "CeTM66J3C",
-      "title": "",
-      "text": "New Bookie",
-      "author": "Carlos",
-      "country": "Spain",
-      "isbn": "124578960",
-      "genre": "Entrevista"
-    },
-    {
-      "id": "zlKyIIqgc",
-      "title": "",
-      "text": "Second Bookie",
-      "author": "Carlos Wu",
-      "country": "Spain",
-      "isbn": "1234567890",
-      "genre": "Gaming"
-    },
-    {
       "id": "c4lFxXzag",
       "title": "New Bookie",
       "author": "Carlos Wu Fei",
@@ -283,6 +265,18 @@
       "year": null,
       "publisher": "",
       "isbn": "3470139827",
+      "edition": "",
+      "price": ""
+    },
+    {
+      "id": "AUNLqncUi",
+      "title": "El mundo de Sofía",
+      "author": "Justin Gaarder",
+      "country": "Sweden",
+      "genre": "Bibliografía",
+      "year": null,
+      "publisher": "",
+      "isbn": "0192837465",
       "edition": "",
       "price": ""
     }
