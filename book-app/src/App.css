@@ -41,3 +41,8 @@
 .layout .stackable.menu {
   height: 70px;
 }
+
+.layout #genre {
+  float: right;
+  margin: 15px 0px;
+}

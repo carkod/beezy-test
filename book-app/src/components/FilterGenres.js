@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 import { Dropdown } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import shortid from 'shortid';
 
 import { fetchGenresApi } from '../actions/genre-actions';
 
@@ -26,6 +25,7 @@ class FilterGenres extends Component {
     render() {
         return (
             <Dropdown
+                id="genre"
                 name="genre"
                 placeholder="Choose genre"
                 search

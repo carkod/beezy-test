@@ -1,9 +1,8 @@
 /* eslint-disable */
 
 import React, { Component } from 'react';
-import { Loader, Button } from 'semantic-ui-react';
+import { Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import shortid from 'shortid';
 
 import { fetchBooksApi, deleteBook } from '../actions/book-actions';
 import Listing from '../components/Listing';
@@ -20,7 +19,7 @@ export class Books extends Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.updateListing = this.updateListing.bind(this);
-    this.resetFilter = this.resetFilter.bind(this);
+    // this.resetFilter = this.resetFilter.bind(this);
   }
 
 
@@ -36,7 +35,6 @@ export class Books extends Component {
 
   handleDelete = (id) => {
     this.props.deleteBook(id).then(res => {
-      console.log('book deleted!!', res);
       this.props.fetchBooksApi();
     })
   }
@@ -53,9 +51,9 @@ export class Books extends Component {
     this.setState({ books: filteredBooks })
   }
 
-  resetFilter() {
-    // this.setState({ books: this.props.books })
-  }
+  // resetFilter() {
+  //   // this.setState({ books: this.props.books })
+  // }
 
   render() {
     if (this.props.books === undefined || this.props.books.length === 0) {
@@ -65,9 +63,8 @@ export class Books extends Component {
     } else {
       const data = this.state.books || this.props.books;
       const editBook = data.findIndex(x => x.id === this.state.editBookId) !== -1 ? data.findIndex(x => x.id === this.state.editBookId) : {};
-      const singleBook = editBook ? data[editBook] : null;
       return (
-        <div>
+        <div className="content">
           <BookForm data={data[editBook]} editBookId={this.state.editBookId} modalOpen={this.state.modalOpen}/>
           <FilterGenres updateListing={this.updateListing}/>
           {/* <Button onClick={this.resetFilter()}>Reset Filter</Button> */}

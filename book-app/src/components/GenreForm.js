@@ -86,14 +86,14 @@ class GenreForm extends Component {
     if (this.state.editBookId) {
       this.props.updateGenre(this.state.data)
       .then(book => {
-        console.log('successful book update', book);
+        // Updated genre close modal
         this.setState({ modalOpen: false });
 
       })
     } else {
       this.props.createGenre(this.state.data)
         .then(genre => {
-          console.log('successful genre submit', genre);
+          // Created genre close modal
           this.setState({ modalOpen: false });
 
         })

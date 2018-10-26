@@ -14,6 +14,8 @@ const buttonDefaultStyles = {
   border: 'none',
   cursor: 'pointer',
   outline: 'none',
+  margin: '20px 0px',
+  float: 'left'
 }
 
 export class BookForm extends Component {
@@ -93,14 +95,14 @@ export class BookForm extends Component {
     if (this.state.editBookId) {
       this.props.updateBook(this.state.data)
       .then(book => {
-        console.log('successful book update', book);
+        // Updated book, close modal
         this.setState({ modalOpen: false });
 
       })
     } else {
       this.props.createBook(this.state.data)
       .then(book => {
-        console.log('successful book create', book);
+        // Created book, close modal
         this.setState({ modalOpen: false });
       })
     }

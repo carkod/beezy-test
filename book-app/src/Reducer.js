@@ -37,7 +37,6 @@ const genres = (state = [], action = {}) => {
 }
 
 const notification = (state = [], action = {}) => {
-    console.log(action);
     switch (action.type) {
         case DELETE_GENRE:
             return {

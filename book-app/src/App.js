@@ -30,12 +30,6 @@ class App extends Component {
   constructor(p) {
     super(p);
     this.state = {}
-    this.notify = this.notify.bind(this);
-  }
-
-  notify(status) {
-    console.log(status)
-    /*this.setState({status: status})*/
   }
 
   render() {

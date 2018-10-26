@@ -27,12 +27,10 @@ class Genres extends Component {
   
   handleDelete = (id) => {
     this.props.deleteGenre(id).then(res => {
-      console.log('genre deleted!!', res);
       this.props.fetchGenresApi();
     })
   }
   handleEdit(id) {
-    // console.log('edit::', id);
     this.setState({ editGenreId: id, genres: this.props.genres, modalOpen: !this.state.modalOpen });
   }
 

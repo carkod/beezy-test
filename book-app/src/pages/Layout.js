@@ -31,7 +31,6 @@ class Layout extends Component {
   render() {
     return (
       <div className="layout">
-      {console.log(this.state.notification)}
           <Notification open={this.state.notification.messageOpen} text={this.state.notification.messageText}/>
           <Nav />
         <Container>
