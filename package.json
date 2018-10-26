@@ -1,0 +1,26 @@
+{
+  "name": "beezy-test",
+  "version": "1.0.0",
+  "description": "Start server:",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run app\"",
+    "server": "cd server && npm start",
+    "app": "cd book-app && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carkod/beezy-test.git"
+  },
+  "keywords": ["beezy", "test", "react"],
+  "author": "Carlos Wu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carkod/beezy-test/issues"
+  },
+  "homepage": "https://github.com/carkod/beezy-test#readme",
+  "dependencies": {
+    "concurrently": "^4.0.1"
+  }
+}
